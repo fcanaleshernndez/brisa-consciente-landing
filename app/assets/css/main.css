@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pastel-white: #FAF9F6;
+  --pastel-pink: #F2C1D1;
+  --soft-pink: #FADADD;
+  --pastel-green: #B8E6D5;
+  --soft-green: #A8D5BA;
+  --pastel-blue: #60c3e7;
+  --soft-blue: #a5e3e9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: var(--pastel-white);
+  color: #5a5a5a;
+}
