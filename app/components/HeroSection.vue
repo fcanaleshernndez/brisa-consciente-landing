@@ -1,6 +1,6 @@
 <template>
   <section class="pb-20 flex flex-col items-center text-center bg-gradient-to-b from-[#F8FBF9] via-[#B8E6D5] to-[#B8E6D5]">
-    <div class="w-[250px] h-[250px] md:w-[350px] md:h-[350px] flex items-center justify-center mb-10">
+    <div class="w-[220px] h-[220px] md:w-[320px] md:h-[320px] flex items-center justify-center mb-10">
       <img 
         src="/img/favicon.png" 
         alt="Brisa Consciente Logo" 
