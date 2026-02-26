@@ -8,7 +8,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/servicios" class="text-gray-500 text-[17px] font-light hover:text-pastelGreen transition">
+          <NuxtLink to="/services" class="text-gray-500 text-[17px] font-light hover:text-pastelGreen transition">
             Servicios
           </NuxtLink>
         </li>

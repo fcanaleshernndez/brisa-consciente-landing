@@ -6,20 +6,12 @@
         <h3 class="text-4xl font-light text-gray-800">Especialistas en Bienestar</h3>
       </div>
 
-      <!-- Contenedor scroll con ref -->
-      <div
-        ref="scrollContainer"
-        @touchstart="onTouchStart"
-        @touchend="onTouchEnd"
-        class="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 scrollbar-hide scroll-smooth"
-      >
-        <div v-for="(p, i) in equipo" :key="i"
-          class="snap-center shrink-0 w-[85vw] md:w-auto"
+      <div ref="scrollContainer" @touchstart="onTouchStart" @touchend="onTouchEnd"
+        class="flex gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 scrollbar-hide scroll-smooth md:flex-wrap md:justify-center">
+        <div v-for="(p, i) in equipo" :key="i" class="snap-center shrink-0 w-[85vw] md:w-[30%] md:max-w-[380px]"
           style="perspective: 1000px; min-height: 500px;">
 
-          <!-- Contenedor que gira -->
-          <div @click="toggle(i)"
-            class="relative w-full h-full cursor-pointer transition-transform duration-700"
+          <div @click="toggle(i)" class="relative w-full h-full cursor-pointer transition-transform duration-700"
             :style="{
               transform: activo === i ? 'rotateY(180deg)' : 'rotateY(0deg)',
               transformStyle: 'preserve-3d',
@@ -27,24 +19,28 @@
             }">
 
             <!-- FRENTE -->
-            <div class="absolute inset-0 bg-white rounded-[2rem] shadow-md border border-white overflow-hidden flex flex-col"
+            <div
+              class="absolute inset-0 bg-white rounded-[2rem] shadow-md border border-white overflow-hidden flex flex-col"
               style="backface-visibility: hidden;">
               <div class="h-2 w-full bg-gradient-to-r from-pastelGreen to-pastelBlue flex-shrink-0"></div>
               <div class="p-8 flex-1 flex flex-col items-center justify-center text-center">
                 <div class="relative mb-4">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-pastelGreen to-pastelBlue rounded-full blur-md opacity-30"></div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-tr from-pastelGreen to-pastelBlue rounded-full blur-md opacity-30">
+                  </div>
                   <div class="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
                     <img :src="p.foto" :alt="p.nombre" class="w-full h-full object-cover" />
                   </div>
                 </div>
                 <h4 class="text-xl font-bold text-gray-800">{{ p.nombre }}</h4>
                 <p class="text-sm text-[#60c3e7] italic font-medium mt-1 mb-6">{{ p.especialidad }}</p>
-                <p class="text-xs text-softGreen/50 tracking-widest uppercase">Toca para ver perfil</p>
+                <p class="text-xs text-softGreen/95 tracking-widest uppercase">Toca para ver perfil</p>
               </div>
             </div>
 
             <!-- REVERSO -->
-            <div class="absolute inset-0 bg-white rounded-[2rem] shadow-xl border border-pastelGreen/20 overflow-hidden flex flex-col"
+            <div
+              class="absolute inset-0 bg-white rounded-[2rem] shadow-xl border border-pastelGreen/20 overflow-hidden flex flex-col"
               style="backface-visibility: hidden; transform: rotateY(180deg);">
               <div class="h-2 w-full bg-gradient-to-r from-pastelBlue to-pastelGreen flex-shrink-0"></div>
               <div class="p-6 flex-1 flex flex-col justify-between overflow-y-auto">
@@ -62,7 +58,8 @@
                     <p class="text-gray-500 font-light leading-relaxed text-justify text-xs">{{ p.enfoque }}</p>
                   </div>
                 </div>
-                <button @click.stop="toggle(i)" class="mt-4 text-xs text-softGreen/60 tracking-widest uppercase text-center w-full">
+                <button @click.stop="toggle(i)"
+                  class="mt-4 text-xs text-softGreen/90 tracking-widest uppercase text-center w-full">
                   ← Volver
                 </button>
               </div>
@@ -72,17 +69,11 @@
         </div>
       </div>
 
-      <!-- Indicadores de puntos (solo mobile) -->
       <div class="flex md:hidden justify-center gap-3 mt-6">
-        <button
-          v-for="(p, i) in equipo"
-          :key="i"
-          @click="goToSlide(i)"
-          class="rounded-full transition-all duration-300"
+        <button v-for="(p, i) in equipo" :key="i" @click="goToSlide(i)" class="rounded-full transition-all duration-300"
           :class="cardActual === i
             ? 'w-6 h-2 bg-softGreen'
-            : 'w-2 h-2 bg-pastelGreen/40 hover:bg-pastelGreen/70'"
-        />
+            : 'w-2 h-2 bg-pastelGreen/40 hover:bg-pastelGreen/70'" />
       </div>
     </div>
   </section>
@@ -101,7 +92,6 @@ function toggle(i) {
   activo.value = activo.value === i ? null : i
 }
 
-// Ir a un slide específico
 function goToSlide(index) {
   const container = scrollContainer.value
   if (!container) return
@@ -109,9 +99,8 @@ function goToSlide(index) {
   const cards = container.children
   if (!cards[index]) return
 
-  // Calcular posición de la card dentro del contenedor
   const cardLeft = cards[index].offsetLeft
-  const containerPadding = 24 // px-6 = 24px
+  const containerPadding = 24
   container.scrollTo({
     left: cardLeft - containerPadding,
     behavior: 'smooth'
@@ -120,14 +109,12 @@ function goToSlide(index) {
   cardActual.value = index
 }
 
-// Avanzar al siguiente slide en bucle
 function nextSlide() {
   if (pausado) return
   const siguiente = (cardActual.value + 1) % equipo.length
   goToSlide(siguiente)
 }
 
-// Detectar qué card está visible al hacer scroll manual
 function onScroll() {
   const container = scrollContainer.value
   if (!container) return
@@ -147,18 +134,15 @@ function onScroll() {
   cardActual.value = closest
 }
 
-// Pausar al tocar
 function onTouchStart() {
   pausado = true
 }
 
-// Reanudar 3s después de soltar
 function onTouchEnd() {
-  setTimeout(() => { pausado = false }, 5000)
+  setTimeout(() => { pausado = false }, 10000)
 }
 
 function startAutoScroll() {
-  // Solo en mobile (< 768px)
   if (window.innerWidth >= 768) return
   intervalo = setInterval(nextSlide, 5500)
 }
@@ -179,7 +163,7 @@ onUnmounted(() => {
 
 const equipo = [
   {
-    nombre: 'Ps. Fernanda Cerda',
+    nombre: 'Fernanda Cerda',
     especialidad: 'Psicóloga Clínica | Enfoque Psicodinámico',
     foto: '/img/psicologa-fernanda-cerda-image1.jpeg',
     experiencia: 'Acompañamiento y tratamiento terapéutico a adolescentes (+ 15 años), adultas y adultos. Experiencia de más de 5 años abordando temáticas como depresión, melancolía, duelo, ansiedad, crisis de pánico, violencia, traumas, conflictos vinculares, entre otros.',
@@ -187,20 +171,12 @@ const equipo = [
     enfoque: 'Trabajo terapéutico desde una orientación psicodinámica, acompañando a las personas a analizar, comprender y elaborar el sentido de su malestar subjetivo para encontrar el alivio.'
   },
   {
-    nombre: 'Próximamente',
-    especialidad: 'Especialidad por confirmar',
-    foto: '/img/placeholder.jpg',
-    experiencia: 'Información disponible próximamente.',
-    formacion: 'Información disponible próximamente.',
-    enfoque: 'Información disponible próximamente.'
-  },
-  {
-    nombre: 'Próximamente',
-    especialidad: 'Especialidad por confirmar',
-    foto: '/img/placeholder.jpg',
-    experiencia: 'Información disponible próximamente.',
-    formacion: 'Información disponible próximamente.',
-    enfoque: 'Información disponible próximamente.'
+    nombre: 'Bárbara Muñoz',
+    especialidad: 'Educadora Diferencial',
+    foto: '/img/ed-diferencial-barbara-munoz-image1.jpeg',
+    experiencia: 'Educadora Diferencial con trayectoria transversal en el acompañamiento de estudiantes con desafíos en el neurodesarrollo, desde el nivel parvulario hasta capacitación laboral. Especialista en el diseño de apoyos individuales y estrategias para trastornos del lenguaje (TEL), espectro autista y limitaciones motoras, bajo una mirada inclusiva, funcional y centrada en la comunicación.',
+    formacion: 'Licenciada en educación, Universidad Central de Chile. Profesora de educación diferencial mención trastornos específicos del lenguaje y discapacidad intelectual, Universidad Central de Chile.',
+    enfoque: 'La metodología de trabajo prioriza la valoración de la neurodiversidad y el desarrollo de la autonomía funcional de cada estudiante. A través de la implementación de sistemas de comunicación y apoyos personalizados, se facilita un entorno inclusivo que potencia las fortalezas individuales, promoviendo el bienestar y la participación activa en sus diversos contextos de vida.'
   }
 ]
 </script>

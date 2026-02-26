@@ -1,11 +1,9 @@
 <template>
-  <div class="antialiased">
+  <div class="min-h-screen bg-[#F8FBF9] text-gray-800">
     <AppNavBar />
-    <HeroSection />
-    <MissionSection />
-    <ProfessionalSection />
-    <OurProfessionalsSection />
-    <ValuesSection />
+    <main class="pt-20">
+      <NuxtPage />
+    </main>
     <AppFooter />
   </div>
 </template>
