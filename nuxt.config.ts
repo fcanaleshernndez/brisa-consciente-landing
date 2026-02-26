@@ -1,5 +1,8 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
+  nitro: {
+    preset: 'static',
+  },
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   vite: {
