@@ -65,15 +65,16 @@ import {
     PencilIcon, 
     UsersIcon, 
     CheckCircleIcon, 
-    ScaleIcon,
-    AcademicCapIcon
+    AcademicCapIcon,
+    ScaleIcon
 } from '@heroicons/vue/24/outline'
 
 const WHATSAPP_NUMBER = '56946306546'
 
 const categorias = [
   { id: 'psicologia', nombre: 'Psicología' },
-  { id: 'educacion', nombre: 'Educación' }
+  { id: 'educacion', nombre: 'Educación' },
+  { id: 'derecho', nombre: 'Derecho' },
 ]
 
 const categoriaActiva = ref('psicologia')
@@ -143,6 +144,14 @@ const servicios = [
         descripcion: 'Dirigido a estudiantes que requieran apoyo en el proceso de aprendizaje y enseñanza.',
         whatsapp: 'Hola, me interesa Sesión de Educación Diferencial',
         items: ['Reforzamiento en el ámbito educativo', 'Estrategias de aprendizaje','Potenciación de habilidades en la educación']
+    },
+    {
+        categoria: 'derecho',
+        icono: ScaleIcon,
+        titulo: 'Sesión de Orientación Jurídica Familiar',
+        descripcion: 'Dirigido a personas que requieran apoyo en procesos legales en el ámbito familiar',
+        whatsapp: 'Hola, me interesa Sesión de Orientación Jurídica',
+        items: ['Orientación de procesos de pensión de alimentos', 'Acuerdos de cuidado personal y relación directa y regular','Asesoría en divorcios y mediaciones familiares.']
     }
 ]
 

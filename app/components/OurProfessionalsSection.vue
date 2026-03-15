@@ -177,6 +177,14 @@ const equipo = [
     experiencia: 'Educadora Diferencial con trayectoria transversal en el acompañamiento de estudiantes con desafíos en el neurodesarrollo, desde el nivel parvulario hasta capacitación laboral. Especialista en el diseño de apoyos individuales y estrategias para trastornos del lenguaje (TEL), espectro autista y limitaciones motoras, bajo una mirada inclusiva, funcional y centrada en la comunicación.',
     formacion: 'Licenciada en educación, Universidad Central de Chile. Profesora de educación diferencial mención trastornos específicos del lenguaje y discapacidad intelectual, Universidad Central de Chile.',
     enfoque: 'La metodología de trabajo prioriza la valoración de la neurodiversidad y el desarrollo de la autonomía funcional de cada estudiante. A través de la implementación de sistemas de comunicación y apoyos personalizados, se facilita un entorno inclusivo que potencia las fortalezas individuales, promoviendo el bienestar y la participación activa en sus diversos contextos de vida.'
+  },
+  {
+    nombre: 'Nazhla Gómez',
+    especialidad: 'Abogada Familiar',
+    foto: '/img/abogada-nazhla-gomez-image1.jpeg',
+    experiencia: 'Abogada con trayectoria en la representación integral ante Tribunales de Familia, destacando en la litigación de causas de alta complejidad. Mi experiencia abarca desde la protección especializada de derechos de NNA y Violencia Intrafamiliar (VIF), hasta materias de derecho de familia general como divorcios, cuidado personal, pensiones de alimentos, reconocimiento de paternidad y relación directa y regular.',
+    formacion: 'Abogada (título otorgado por la Excma. Corte Suprema) y Licenciada en Ciencias Jurídicas (Universidad Andrés Bello). Especialista en Derecho de Familia, Medidas de Protección y VIF.',
+    enfoque: 'Profesional con un marcado perfil litigante y estratégico. Mi objetivo es proporcionar soluciones legales integrales y personalizadas, ya sea en la protección de la infancia o en la resolución de conflictos familiares complejos.'
   }
 ]
 </script>
